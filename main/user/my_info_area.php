@@ -21,18 +21,7 @@ function user_edit_mode(){
 </script>
 
 <?PHP
-// $db_host    = "localhost";
-// $db_user    = "mh";
-// $db_password  = "thak2014";
-// $db_dbname  = "mh";
-// $db_conn    = mysql_connect($db_host, $db_user, $db_password);
-// mysql_select_db($db_dbname, $db_conn);
-
-// include($_SERVER["DOCUMENT_ROOT"]."/include/config/config.php");
-$db_host    = "localhost";
-$db_user    = "mhadmin";
-$db_password  = "qwe7634mh";
-$db_dbname  = "mh";
+include($_SERVER["DOCUMENT_ROOT"]."/include/config/config.php");
 $pdo = new PDO('mysql:host='.$db_host.';dbname='.$db_dbname.';charset=utf8', $db_user, $db_password);
 
 

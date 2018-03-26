@@ -89,7 +89,7 @@ $_SESSION["user_NAME"] = $user_NAME;
             </fieldset>
         </div>
         <div id="modeChange-area">
-          <img id="modeChangeButton" class="tilt modeChangeButton" TITLE="Mode Change"></img>
+          <img id="modeChangeButton" class="tilt modeChangeButton"></img>
         </div>
       </div>
     </div>
