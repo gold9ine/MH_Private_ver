@@ -1,0 +1,8 @@
+﻿<?PHP 
+$db_host    = "localhost";
+$db_user    = "mhadmin";
+$db_password  = "qwe7634mh";
+$db_dbname  = "mh";
+$db_conn    = mysql_connect($db_host, $db_user, $db_password);
+mysql_select_db($db_dbname, $db_conn);
+?>

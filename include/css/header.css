@@ -1,0 +1,591 @@
+html,body{
+ height: 100%
+}
+body{
+ margin : 0;
+ padding: 0;
+ overflow-y:scroll;
+ /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333;
+  background-color: #fff;
+ /*text-align:center;*/
+  font-family: "Nanum Gothic", sans-serif;
+}
+* {
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+*:before, *:after {
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+img{border:0;}
+div {
+display: block;
+}
+
+#banner-user-area {
+  text-align: left;
+width: auto;
+padding-top: 0;
+padding-bottom: 0;
+margin-right: 0;
+margin-left: 0;
+border: 0;
+-webkit-box-shadow: none;
+box-shadow: none;
+padding: 0px 10px;
+/*margin-top: 8px;
+margin-bottom: 8px;*/
+border-top: 1px solid transparent;
+border-bottom: 1px solid transparent;
+}
+#banner-user-ul{
+padding-left: 0;
+list-style: none;
+margin-left: -5px;
+display: block;
+-webkit-margin-before: 1em;
+-webkit-margin-after: 1em;
+-webkit-margin-start: 0px;
+-webkit-margin-end: 0px;
+-webkit-padding-start: 80px;
+margin-top: 0;
+margin-bottom: 10px;
+}
+
+.banner-user-li{
+  padding-left: 3px;
+padding-right: 3px;
+display: inline-block;
+text-align: -webkit-match-parent;
+}
+
+#search-form{
+  padding-top: 0;
+padding-bottom: 0;
+margin-right: 0;
+margin-left: 0;
+border: 0;
+-webkit-box-shadow: none;
+box-shadow: none;
+padding: 0px 15px;
+/*margin-top: 8px;
+margin-bottom: 8px;*/
+border-top: 1px solid transparent;
+border-bottom: 1px solid transparent;
+display: block;
+clear: both;
+}
+
+#banner-fildset{
+  clear: both;
+  display: inline-block;
+vertical-align: middle;
+min-width: 0;
+padding: 0;
+margin: 0;
+border: 0;
+display: block;
+-webkit-margin-start: 2px;
+-webkit-margin-end: 2px;
+-webkit-padding-before: 0.35em;
+-webkit-padding-start: 0.75em;
+-webkit-padding-end: 0.75em;
+-webkit-padding-after: 0.625em;
+}
+
+.banner-user-h3{
+  font-size: 20px;
+margin-top: 20px;
+display: block;
+-webkit-margin-before: 1em;
+-webkit-margin-after: 1em;
+-webkit-margin-start: 0px;
+-webkit-margin-end: 0px;
+margin-bottom: 10px;
+font-family: inherit;
+font-weight: 200;
+line-height: 1.1;
+color: inherit;
+padding: 0;
+margin: 0;
+}
+#banner-form-group{
+  display: inline-block;
+margin-bottom: 0;
+vertical-align: middle;
+
+}
+
+#search-box{
+  display: inline-block;
+width: auto;
+vertical-align: middle;
+-webkit-appearance: none;
+box-sizing: border-box;
+height: 34px;
+padding: 6px 12px;
+font-size: 14px;
+line-height: 1.42857143;
+color: #555;
+background-color: #fff;
+background-image: none;
+border: 1px solid #ccc;
+border-radius: 4px;
+-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+-webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+font-family: inherit;
+margin: 0;
+font: inherit;
+-webkit-rtl-ordering: logical;
+-webkit-user-select: text;
+cursor: auto;
+letter-spacing: normal;
+word-spacing: normal;
+text-transform: none;
+text-indent: 0px;
+text-shadow: none;
+text-align: start;
+-webkit-writing-mode: horizontal-tb;
+width: 186px;
+}
+
+
+.form-control {
+display: block;
+width: 100%;
+height: 34px;
+padding: 6px 12px;
+font-size: 14px;
+line-height: 1.42857143;
+color: #555;
+background-color: #fff;
+background-image: none;
+border: 1px solid #ccc;
+border-radius: 4px;
+-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+-webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+.search-button{
+  position: relative;
+top: 1px;
+display: inline-block;
+font-family: 'Glyphicons Halflings';
+font-style: normal;
+font-weight: normal;
+line-height: 1;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+color: #fff;
+background-color: #428bca;
+border-color: #357ebd;
+padding: 6px 12px;
+margin-bottom: 0;
+font-size: 14px;
+text-align: center;
+white-space: nowrap;
+vertical-align: middle;
+cursor: pointer;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+background-image: none;
+border: 1px solid transparent;
+border-radius: 4px;
+-webkit-appearance: button;
+text-transform: none;
+overflow: visible;
+margin: 0;
+font: inherit;
+align-items: flex-start;
+letter-spacing: normal;
+word-spacing: normal;
+text-indent: 0px;
+text-shadow: none;
+-webkit-writing-mode: horizontal-tb;
+content: "\e013";
+box-sizing: border-box;
+}
+.modeChangeButton{
+  vertical-align: middle;
+}
+#menu-btn-group{
+  position: relative;
+display: inline-block;
+vertical-align: middle;
+text-align: center;
+}
+.top-menu-btn{
+width: 25%;
+height: 44px;
+float: left;
+cursor: pointer;
+/*border-top-right-radius: 0;
+border-bottom-right-radius: 0;
+margin-left: 0;
+position: relative;
+color: #333;
+border-color: #ccc;
+display: inline-block;
+padding: 6px 12px;
+margin-bottom: 0;
+font-weight: normal;
+line-height: 1.42857143;
+text-align: center;
+white-space: nowrap;
+vertical-align: middle;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+border: 1px solid transparent;
+border-radius: 4  dpx;
+font-family: inherit;
+-webkit-appearance: button;
+text-transform: none;
+overflow: visible;
+margin: 0;
+font: inherit;
+align-items: flex-start;*/
+}
+
+
+.middleArea{
+ /*width: 1280px;*/
+ width: 1440px;
+ /*width: 70%;*/
+ margin: 0 auto;
+ padding: 0;
+}
+
+.middleFullArea{
+ /*width: 1280px;*/
+ width: auto;
+ height: 1000px;
+ margin: 0 auto;
+ padding: 0;
+}
+
+#topBanner-extention{
+  /*background-color: white;*/
+  /*background: url('/images/main//background/bg-main1.png') no-repeat center;*/
+  background-size: 100% 100%;
+  /*height: 230px;*/
+}
+.topBanner-extention-left{
+width: 50%;
+height: 240px;
+position: absolute;
+background-color: #494C9C;
+top: 0;
+}
+.topBanner-extention-right{
+width: 50%;
+height: 240px;
+position: absolute;
+right: 0;
+background-color: #B6507D;
+top: 0;
+}
+.topBanner-hight{
+  height: 200px;
+}
+.topBanner-side-width{
+  width: 150px;
+}
+#topBanner-left{
+background-color: blue;
+float: left;
+/*width: 150px;*/
+/*position: absolute;*/
+}
+#topBanner-right{
+background-color: red;
+float: right;
+/*width: 150px;*/
+/*position: absolute;*/
+}
+#topBanner{
+  vertical-align: middle;
+/* height: 150px; */
+/* width: 1440px; */
+height: 230px;
+/*width: 1920px;*/
+/*max-width: 100%;*/
+height: 100%;
+max-height: 100%;
+/* height: auto; */
+background: url('/images/main//background/topBannerImg_normalMode.png') no-repeat center;
+background-size: 100% 100%;
+margin: 0 auto;
+}
+
+
+/* 여기부터 header 부분 user nickname, search-box 영역*/
+#banner-user-search-area{
+  width: 325px;
+float: right;
+  margin-right: 30px;
+ padding-top: 55px;
+ text-align: right;
+}
+#modeChange-area{
+  text-align: center;
+  clear: both;
+}
+#modeChangeButton{
+  background: url('/images/main/logo/logo.png') no-repeat center;
+  border: none;
+  cursor: pointer;
+  background-size: contain;
+  /*padding: 54px;*/
+  padding: 80px;
+  width: 160px;
+  height: 160px;
+  /*margin: -112px 0px -25px 0px;*/
+  margin: -126px 0px 0px 0px;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0);
+}
+#modeChangeButton:hover{
+  background: url('/images/main/logo/logo_hover.png') no-repeat center;
+  border: none;
+  cursor: pointer;
+  background-size: contain;
+  /*padding: 54px;*/
+  padding: 80px;
+  width: 160px;
+  height: 160px;
+  /*margin: -112px 0px -25px 0px;*/
+  margin: -126px 0px 0px 0px;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0);
+}
+/*/////// hover effect*/
+.morph {
+  -webkit-transition: all 0.5s ease;
+     -moz-transition: all 0.5s ease;
+       -o-transition: all 0.5s ease;
+      -ms-transition: all 0.5s ease;
+          transition: all 0.5s ease;
+}
+ 
+.morph:hover {
+  border-radius: 50%;
+  -webkit-transform: rotate(360deg);
+     -moz-transform: rotate(360deg);
+       -o-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+          transform: rotate(360deg);
+}
+/*TILT*/
+.tilt {
+  -webkit-transition: all 0.5s ease;
+     -moz-transition: all 0.5s ease;
+       -o-transition: all 0.5s ease;
+      -ms-transition: all 0.5s ease;
+          transition: all 0.5s ease;
+}
+ 
+.tilt:hover {
+  -webkit-transform: rotate(-10deg);
+     -moz-transform: rotate(-10deg);
+       -o-transform: rotate(-10deg);
+      -ms-transform: rotate(-10deg);
+          transform: rotate(-10deg);
+}
+#user-icon{
+  /*content:url("/images/main/button/user-button.png") no-repeat center;*/
+  background-size: contain;
+  width: 15px;
+  height: auto;
+  float: left;
+  margin-top: 9px;
+}
+#search-text{
+  /*content:url("/images/main/background/search.png") no-repeat center;*/
+  background-size: contain;
+  width: 63px;
+  height: auto;
+  float: left;
+  margin-top: 9px;
+}
+#user-nickname{
+  color: white;
+  text-decoration: none;
+  /*float: right;*/
+}
+#logout-button-li{
+  float: right;
+margin-top: 6px;
+margin-right: 9px;
+}
+#logout-button{
+  /*content:url("/images/main/button/logout-button.png") no-repeat center;*/
+  /*background: url("/images/main/button/logout-button.png") no-repeat center;*/
+  /*background-image: url("/images/main/button/logout-button.png");*/
+  background-size: contain;
+  width: 15px;
+  height: auto;
+  float: right;
+}
+#create-button{
+  content:url("/images/main/button/create-button.png") no-repeat center;
+  background-size: contain;
+  width: 23px;
+  height: auto;
+  float: right;
+}
+#home-button{
+  content:url("/images/main/button/home-button.png") no-repeat center;
+  background-size: contain;
+  width: 23px;
+  height: auto;
+  float: right;
+}
+
+#search-box-form{
+  clear: both;
+}
+#search-button{
+  height: 34px;
+  width: 32px;
+  background-image:url("/images/main/button/check-button.png");
+  /*background-repeat:no-repeat;*/
+}
+
+#topMenu{
+  background: url('/images/main/background/menu-background-img.png') center;
+}
+
+/*menu image select*/
+.menu_none #harmonyChartButton{
+  background: url('/images/main/button/btn-hc1.png') no-repeat center;
+  background-size: 100% 100%;
+}
+.menu_hcb #harmonyChartButton{
+  background: url('/images/main/button/btn-hc3.png') no-repeat center;
+  background-size: 100% 100%;
+}
+.menu_atb #harmonyChartButton{
+  background: url('/images/main/button/btn-hc1.png') no-repeat center;
+  background-size: 100% 100%;
+}
+.menu_mpb #harmonyChartButton{
+  background: url('/images/main/button/btn-hc1.png') no-repeat center;
+  background-size: 100% 100%;
+}
+.menu_tlb #harmonyChartButton{
+  background: url('/images/main/button/btn-hc1.png') no-repeat center;
+  background-size: 100% 100%;
+}
+
+.menu_none #artistRankingButton{
+  background: url('/images/main/button/btn-ar1.png') no-repeat center;
+  background-size: 100% 100%;
+}
+.menu_hcb #artistRankingButton{
+  background: url('/images/main/button/btn-ar1.png') no-repeat center;
+  background-size: 100% 100%;
+}
+.menu_atb #artistRankingButton{
+  background: url('/images/main/button/btn-ar3.png') no-repeat center;
+  background-size: 100% 100%;
+}
+.menu_mpb #artistRankingButton{
+  background: url('/images/main/button/btn-ar1.png') no-repeat center;
+  background-size: 100% 100%;
+}
+.menu_tlb #artistRankingButton{
+  background: url('/images/main/button/btn-ar1.png') no-repeat center;
+  background-size: 100% 100%;
+}
+
+.menu_none #myProjectButton{
+  background: url('/images/main/button/btn-mp1.png') no-repeat center;
+  background-size: 100% 100%;
+}
+.menu_hcb #myProjectButton{
+  background: url('/images/main/button/btn-mp1.png') no-repeat center;
+  background-size: 100% 100%;
+}
+.menu_atb #myProjectButton{
+  background: url('/images/main/button/btn-mp1.png') no-repeat center;
+  background-size: 100% 100%;
+}
+.menu_mpb #myProjectButton{
+  background: url('/images/main/button/btn-mp3.png') no-repeat center;
+  background-size: 100% 100%;
+}
+.menu_tlb #myProjectButton{
+  background: url('/images/main/button/btn-mp1.png') no-repeat center;
+  background-size: 100% 100%;
+}
+
+.menu_none #timelineButton{
+  background: url('/images/main/button/btn-tl1.png') no-repeat center;
+  background-size: 100% 100%;
+}
+.menu_hcb #timelineButton{
+  background: url('/images/main/button/btn-tl1.png') no-repeat center;
+  background-size: 100% 100%;
+}
+.menu_atb #timelineButton{
+  background: url('/images/main/button/btn-tl1.png') no-repeat center;
+  background-size: 100% 100%;
+}
+.menu_mpb #timelineButton{
+  background: url('/images/main/button/btn-tl1.png') no-repeat center;
+  background-size: 100% 100%;
+}
+.menu_tlb #timelineButton{
+  background: url('/images/main/button/btn-tl3.png') no-repeat center;
+  background-size: 100% 100%;
+}
+
+#harmonyChartButton:hover{
+  background: url('/images/main/button/btn-hc2.png') no-repeat center;
+  background-size: 100% 100%;
+}
+#artistRankingButton:hover{
+  background: url('/images/main/button/btn-ar2.png') no-repeat center;
+  background-size: 100% 100%;
+}
+#myProjectButton:hover{
+  background: url('/images/main/button/btn-mp2.png') no-repeat center;
+  background-size: 100% 100%;
+}
+#timelineButton:hover{
+  background: url('/images/main/button/btn-tl2.png') no-repeat center;
+  background-size: 100% 100%;
+}
+/* 여기까지 header 부분 ////////////////////////////////////////*/
+
+.normal #topBanner{
+text-align: right;
+vertical-align: middle;
+/*height: 230px;*/
+/*width: 1920px;*/
+background:  url('/images/main/background/topBannerImg_normalMode.png') no-repeat center;
+background-size: 100% 100%;
+margin: 0 auto;
+position: relative;
+z-index: 2;
+}
+
+.detail #topBanner{
+text-align: right;
+vertical-align: middle;
+/*height: 230px;*/
+/*width: 1920px;*/
+background:  url('/images/main/background/topBannerImg_detailMode.png') no-repeat center;
+background-size: 100% 100%;
+margin: 0 auto;
+}
