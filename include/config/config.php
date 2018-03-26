@@ -1,8 +1,8 @@
 ﻿<?PHP 
 $db_host    = "localhost";
 $db_user    = "root";
-$db_password  = "root";
-$db_dbname  = "root";
+$db_password  = "qwe7634";
+$db_dbname  = "mh";
 
 $baseDir = "/mh";
 

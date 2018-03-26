@@ -1,5 +1,11 @@
-/uploads/albumImg/*
-/uploads/music/*
-/source/*
-/userImg/*
-/include/config/config.php
+uploads/albumImg/*
+uploads/music/*
+uploads/source/*
+uploadsuserImg/*
+include/config/config.php
+
+$~
+.DS_Store
+.gitignore
+UserInterfaceState.xcuserstate
+
