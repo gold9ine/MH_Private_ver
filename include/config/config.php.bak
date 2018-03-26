@@ -19,7 +19,6 @@ $baseDir = "/mh";
 
 
 try {
-
     // MySQL PDO 객체 생성
 
     // mysql을 다른 DB로 변경하면 다른 DB도 사용 가능
@@ -31,13 +30,10 @@ try {
     // 에러 출력
 
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
 }
 
 catch (Exception $e) {
-
     echo $e->getMessage();
-
 }
 
 ?>
