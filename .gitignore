@@ -2,3 +2,4 @@
 ./uploads/music/*
 ./source/*
 ./userImg/*
+./include/config/config.php
