@@ -13,7 +13,7 @@ session_start();
 // session_unset();
 // $base_dir = "/home/mh/soma/webpage";
 include($_SERVER["DOCUMENT_ROOT"]."/include/config/config.php");
-$user_id=$_SESSION["user_id"];
+$user_id = $_SESSION["user_id"];
 function icone_text($flag)
 {
   if($flag == 0)
@@ -39,7 +39,7 @@ function icone_text($flag)
 }
 ?>
 <?PHP
-$q="select * from projects where pri_user_id= :user_id;";
+$q = "select * from projects where pri_user_id= :user_id;";
 $dbq = $pdo->prepare($q);
 $dbq->bindParam(':user_id', $user_id, PDO::PARAM_INT);
 $dbq->execute();
@@ -47,26 +47,26 @@ $count = $dbq->rowCount();
 $sql_result = $dbq->fetchAll(PDO::FETCH_ASSOC);
 // $sql_result=mysql_query($q, $db_conn);        
 // $count=mysql_num_rows($sql_result);
-$i=0;
+$i = 0;
 foreach ($sql_result as $row){
-  $pro_dbid[$i]=$row['id'];
-  $pro_dbGOOD_COUNT[$i]=$row['GOOD_COUNT'];
-  $pro_dbDOWNLOAD_COUNT[$i]=$row['DOWNLOAD_COUNT'];
-  $pro_dbPLAY_COUNT[$i]=$row['PLAY_COUNT'];
-  $pro_dbPLAY_TIME[$i]=$row['PLAY_TIME'];
+  $pro_dbid[$i] = $row['id'];
+  $pro_dbGOOD_COUNT[$i] = $row['GOOD_COUNT'];
+  $pro_dbDOWNLOAD_COUNT[$i] = $row['DOWNLOAD_COUNT'];
+  $pro_dbPLAY_COUNT[$i] = $row['PLAY_COUNT'];
+  $pro_dbPLAY_TIME[$i] = $row['PLAY_TIME'];
 
-  $pro_dbcreated_at[$i]=$row['created_at'];
-  $pro_dbcreated_at_head[$i]=substr($pro_dbcreated_at[$i], 0,10);
-  $pro_dbupdated_at[$i]=$row['updated_at'];
-  $pro_dbupdated_at_head[$i]=substr($pro_dbupdated_at[$i], 0,10);
-  $pro_dbALBUM_IMAGE_PATH[$i]=$row['ALBUM_IMAGE_PATH'];
-  $pro_dbTITLE[$i]=$row['TITLE'];
-  $pro_dbARTIST[$i]=$row['ARTIST'];
+  $pro_dbcreated_at[$i] = $row['created_at'];
+  $pro_dbcreated_at_head[$i] = substr($pro_dbcreated_at[$i], 0,10);
+  $pro_dbupdated_at[$i] = $row['updated_at'];
+  $pro_dbupdated_at_head[$i] = substr($pro_dbupdated_at[$i], 0,10);
+  $pro_dbALBUM_IMAGE_PATH[$i] = $row['ALBUM_IMAGE_PATH'];
+  $pro_dbTITLE[$i] = $row['TITLE'];
+  $pro_dbARTIST[$i] = $row['ARTIST'];
 
-  $pro_dbPROJECT_INFO[$i]=$row['PROJECT_INFO'];
-  $pro_dbmeta_num[$i]=$row['meta_id'];
-  $pro_dbpri_user_id[$i]=$row['pri_user_id'];
-  $pro_dbGENRE[$i]=$row['GENRE'];
+  $pro_dbPROJECT_INFO[$i] = $row['PROJECT_INFO'];
+  $pro_dbmeta_num[$i] = $row['meta_id'];
+  $pro_dbpri_user_id[$i] = $row['pri_user_id'];
+  $pro_dbGENRE[$i] = $row['GENRE'];
   $i++;
 }
 // for($i=0; $i<$count; $i++)
@@ -98,9 +98,9 @@ foreach ($sql_result as $row){
 
   <div class="panel-group" id="accordion">
     <?php
-    if($count != 0)
+    if ($count != 0)
     {
-    $i=0;
+    $i = 0;
     echo("
       <div class=\"panel panel-default mp-panel\">
       <div class=\"panel-heading pi-panel-heading\">
@@ -131,7 +131,7 @@ foreach ($sql_result as $row){
     // $res = mysql_query($sql);
     // $cnt=mysql_num_rows($res);
 
-    $j=0;
+    $j = 0;
     foreach ($res as $row){
       $content = $row['CONTENTS'];
       $time = $row['created_at'];
@@ -151,9 +151,9 @@ foreach ($sql_result as $row){
       $user_name = $res2['NAME'];
       $comment_user_id = $res2['id'];
 
-      $temp_comment="";
+      $temp_comment = "";
 
-      if($type==0)
+      if($type == 0)
         {
           $sql_temp = "select TITLE from projects where id= :project_id;";
           $dbq = $pdo->prepare($sql_temp);
@@ -163,45 +163,45 @@ foreach ($sql_result as $row){
           $project_name = $res_temp['TITLE'];
           // $res_temp = mysql_query($sql_temp);
           // $project_name = mysql_result($res_temp, 0);
-          $temp_comment=$content;
+          $temp_comment = $content;
           // $content="$user_name 님이 $project_name"."에 댓글을 남겼습니다.";
-          $content="'$user_name' scribbled by '$project_name'.";
+          $content = "'$user_name' scribbled by '$project_name'.";
         }
-        else if($type==1){
+        else if ($type == 1){
           $sql_temp = "select TITLE from projects where id= :project_id;";
           $dbq = $pdo->prepare($sql_temp);
           $dbq->bindParam(':project_id', $project_id, PDO::PARAM_INT);
           $dbq->execute();
           $res_temp = $dbq->fetch(PDO::FETCH_ASSOC);
           $project_name = $res_temp['TITLE'];
-          $content="'$user_name' likes '$project_name'.";
+          $content = "'$user_name' likes '$project_name'.";
         }
-        else if($type==2){
+        else if ($type == 2){
           $sql_temp = "select TITLE from projects where id= :project_id;";
           $dbq = $pdo->prepare($sql_temp);
           $dbq->bindParam(':project_id', $project_id, PDO::PARAM_INT);
           $dbq->execute();
           $res_temp = $dbq->fetch(PDO::FETCH_ASSOC);
           $project_name = $res_temp['TITLE'];
-          $content="'$user_name' had downloaded '$project_name's music.";
+          $content = "'$user_name' had downloaded '$project_name's music.";
         }
-        else if($type==3){
+        else if ($type == 3){
           $sql_temp = "select TITLE from projects where id= :project_id;";
           $dbq = $pdo->prepare($sql_temp);
           $dbq->bindParam(':project_id', $project_id, PDO::PARAM_INT);
           $dbq->execute();
           $res_temp = $dbq->fetch(PDO::FETCH_ASSOC);
           $project_name = $res_temp['TITLE'];
-          $content="'$user_name's track was merged into '$project_name'.";
+          $content = "'$user_name's track was merged into '$project_name'.";
         }
-        else if($type==4){
+        else if ($type == 4){
           $sql_temp = "select TITLE from projects where id= :project_id;";
           $dbq = $pdo->prepare($sql_temp);
           $dbq->bindParam(':project_id', $project_id, PDO::PARAM_INT);
           $dbq->execute();
           $res_temp = $dbq->fetch(PDO::FETCH_ASSOC);
           $project_name = $res_temp['TITLE'];
-          $content="'$user_name' added track for '$project_name'.";
+          $content = "'$user_name' added track for '$project_name'.";
         }
         echo("  
        <div class=\"form-group\">
@@ -302,7 +302,7 @@ foreach ($sql_result as $row){
       </div>
       ");
 
-    for($i=1; $i<$count; $i++){
+    for($i = 1; $i < $count; $i++){
       echo("
         <div class=\"panel panel-default mp-panel\">
         <div class=\"panel-heading pi-panel-heading\">
@@ -332,12 +332,12 @@ foreach ($sql_result as $row){
       $res = $dbq->fetchAll(PDO::FETCH_ASSOC);
       // $res = mysql_query($sql);
       // $cnt=mysql_num_rows($res);
-      $j=0;
+      $j = 0;
       foreach ($res as $row){
 
         $j++;
       }
-      for($j=0;$j<$cnt;$j++)
+      for($j = 0;$j < $cnt; $j++)
       {
         $content = $row['CONTENTS'];
         $time = $row['created_at'];
@@ -359,7 +359,7 @@ foreach ($sql_result as $row){
 
         $temp_comment="";
 
-        if($type==0)
+        if($type == 0)
         {
           $sql_temp = "select TITLE from projects where id= :project_id;";
           $dbq = $pdo->prepare($sql_temp);
@@ -370,7 +370,7 @@ foreach ($sql_result as $row){
           $temp_comment=$content;
           $content="'$user_name' scribbled by '$project_name'.";
         }
-        else if($type==1){
+        else if($type == 1){
           $sql_temp = "select TITLE from projects where id= :project_id;";
           $dbq = $pdo->prepare($sql_temp);
           $dbq->bindParam(':project_id', $project_id, PDO::PARAM_INT);
@@ -379,7 +379,7 @@ foreach ($sql_result as $row){
           $project_name = $res_temp['TITLE'];
           $content="'$user_name' likes '$project_name'.";
         }
-        else if($type==2){
+        else if($type == 2){
           $sql_temp = "select TITLE from projects where id= :project_id;";
           $dbq = $pdo->prepare($sql_temp);
           $dbq->bindParam(':project_id', $project_id, PDO::PARAM_INT);
@@ -388,7 +388,7 @@ foreach ($sql_result as $row){
           $project_name = $res_temp['TITLE'];
           $content="'$user_name' had downloaded '$project_name's music.";
         }
-        else if($type==3){
+        else if($type == 3){
           $sql_temp = "select TITLE from projects where id= :project_id;";
           $dbq = $pdo->prepare($sql_temp);
           $dbq->bindParam(':project_id', $project_id, PDO::PARAM_INT);
@@ -397,14 +397,14 @@ foreach ($sql_result as $row){
           $project_name = $res_temp['TITLE'];
           $content="'$user_name's track was merged into '$project_name'.";
         }
-        else if($type==4){
+        else if($type == 4){
           $sql_temp = "select TITLE from projects where id= :project_id;";
           $dbq = $pdo->prepare($sql_temp);
           $dbq->bindParam(':project_id', $project_id, PDO::PARAM_INT);
           $dbq->execute();
           $res_temp = $dbq->fetch(PDO::FETCH_ASSOC);
           $project_name = $res_temp['TITLE'];
-          $content="'$user_name' added track for '$project_name'.";
+          $content = "'$user_name' added track for '$project_name'.";
         }
         echo("  
          <div class=\"form-group\">
@@ -433,9 +433,9 @@ foreach ($sql_result as $row){
         ");
       }
       }
-        if($count<5){
-        $count_temp=(5-$count) * 155;
-        echo("<div class=\"mp-null\" style=\"height: ".$count_temp."px;\"></div>");
+        if ($count < 5){
+        $count_temp = (5 - $count) * 155;
+        echo("<div class=\"mp-null\" style=\"height: " . $count_temp . "px;\"></div>");
         }
       ?>
       </div>
@@ -454,7 +454,7 @@ foreach ($sql_result as $row){
       <!-- List group -->
       <ul id="list-group-item" class="list-group">
         <?php
-        for($i=0; $i<$count; $i++){
+        for($i = 0; $i < $count; $i++){
           echo("
             <li class=\"list-group-item\">
             <div class=\"row\">
@@ -478,7 +478,7 @@ foreach ($sql_result as $row){
       <ul id="list-group-item" class="list-group">
         <?php
     // include("/home/mh/soma/webpage/main/favorite_connect.php");
-        $q2="select sources.*, projects.ARTIST as ARTIST, projects.TITLE as TITLE, projects.pri_user_id as creator_id from sources,projects where sources.project_id=projects.id and sources.pri_user_id= :user_id;";
+        $q2 = "select sources.*, projects.ARTIST as ARTIST, projects.TITLE as TITLE, projects.pri_user_id as creator_id from sources,projects where sources.project_id=projects.id and sources.pri_user_id= :user_id;";
         $dbq = $pdo->prepare($q2);
         $dbq->bindParam(':user_id', $user_id, PDO::PARAM_INT);
         $dbq->execute();
@@ -487,12 +487,12 @@ foreach ($sql_result as $row){
         // $sql_result2=mysql_query($q2, $db_conn);        
         // $count2=mysql_num_rows($sql_result2);
 
-        $i=0;
+        $i = 0;
         foreach ($sql_result2 as $row){
-          $pro_dbid[$i]=$row['project_id'];
-          $pro_dbTITLE[$i]=$row['TITLE'];
-          $pro_dbcreator_id[$i]=$row['creator_id'];
-          $pro_dbARTIST[$i]=$row['ARTIST'];
+          $pro_dbid[$i] = $row['project_id'];
+          $pro_dbTITLE[$i] = $row['TITLE'];
+          $pro_dbcreator_id[$i] = $row['creator_id'];
+          $pro_dbARTIST[$i] = $row['ARTIST'];
           $i++;
         }
         // for($i=0; $i<$count2; $i++){
@@ -501,7 +501,7 @@ foreach ($sql_result as $row){
         //   $pro_dbcreator_id[$i]=mysql_result($sql_result2, $i, 'creator_id');
         //   $pro_dbARTIST[$i]=mysql_result($sql_result2, $i, 'ARTIST');
         // }
-        for($i=0; $i<$count2; $i++){
+        for($i = 0; $i < $count2; $i++){
           echo("
             <li class=\"list-group-item\">
             <div class=\"row\">
