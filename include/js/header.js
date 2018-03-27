@@ -1,4 +1,3 @@
-var baseDir = "/mh";
 $(function(){                              
   $("img#modeChangeButton").on('click', function(event){
       event.preventDefault();
@@ -207,38 +206,39 @@ function callEditProject(id) {
 } 
 
 function like_project(id) {
-    $(document).ready(function(){
+  $(document).ready(function() {
     jQuery.ajax({
-    type:"POST",
-    url:"/main/goodCheck.php?a="+id,
-    success:function(data){
-      // console.log(data);
-      if(data>=1){
-        alert("You have already added this project."); 
-      }
-      else{
-            $(document).ready(function(){
-              jQuery.ajax({
+      type:"POST",
+      url:"/main/goodCheck.php?a=" + id,
+      success:function(data) {
+        // console.log(data);
+        if(data >= 1) {
+          alert("You have already added this project."); 
+        }
+        else {
+          $(document).ready(function(){
+            jQuery.ajax({
               type:"POST",
-              url:"/main/goodFunction.php?a="+id,
+              url:"/main/goodFunction.php?a=" + id,
               success:function(){
                 alert("Complete for add to my favorite list."); 
                 $("#list-group-item").load("/main/my-favorite-list.php");
               }, error: function(xhr,status,error){
                 alert(error);
               }
-              }); 
-            });
+            }); 
+          });
+        }
+      }, error: function(xhr,status,error){
+          console.log(status);
+        alert(error);
       }
-    }, error: function(xhr,status,error){
-      alert(error);
-    }
     }); 
   }); 
 }
 
 function favorite_delete(pro_id){
-    $(document).ready(function(){
+    $(document).ready(function() {
     jQuery.ajax({
     type:"POST",
     url:"/main/favorite_delete.php?a="+pro_id,

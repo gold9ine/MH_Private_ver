@@ -15,31 +15,26 @@
 	$salt = ""; 
 	for ($i = 0; $i < 22; $i++)
 	    $salt .= substr("./ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789", mt_rand(0, 63), 1);
-	$salt = '$2a$'.$cost.'$'.$salt.'$';
+	$salt = '$2a$' . $cost . '$' . $salt . '$';
 	$password = crypt($password, $salt);
 
 	// 예외처리
-	$db_conn = @mysql_connect($db_host, $db_user, $db_password);
-	@mysql_select_db($db_dbname, $db_conn);
-	$sql = "Insert into users (NAME,EMAIL,PASSWORD,SALT,PART,created_at,PICTURE) values('$name','$email','$password','$salt' ,'$part',NOW(),'$picture')";
-	$dbq = @mysql_query($sql, $db_conn);
-	
-	// $dbq = $pdo->prepare("Insert into users (NAME,EMAIL,PASSWORD,SALT,PART,created_at,PICTURE) values(:name,:email,:password,:salt,:part,NOW(),:picture)");
-    // $dbq->bindParam(':name', $name, PDO::PARAM_STR);
-    // $dbq->bindParam(':email', $email, PDO::PARAM_STR);
-    // $dbq->bindParam(':password', $password, PDO::PARAM_STR);
-    // $dbq->bindParam(':salt', $salt, PDO::PARAM_STR);
-    // $dbq->bindParam(':part', $part, PDO::PARAM_STR);
-    // $dbq->bindParam(':picture', $picture, PDO::PARAM_STR);
-    // $dbq->execute();
-    // $dbq->execute([':name'=>$name, ':email'=>$email, ':password'=>$password, ':salt'=>$salt, ':part'=>$part, ':picture'=>$picture]);
-	// $pdo->query($sql);
+	// $db_conn = @mysql_connect($db_host, $db_user, $db_password);
+	// @mysql_select_db($db_dbname, $db_conn);
+	// $sql = "Insert into users (NAME,EMAIL,PASSWORD,SALT,PART,created_at,PICTURE) values('$name','$email','$password','$salt' ,'$part',NOW(),'$picture')";
+	// $dbq = @mysql_query($sql, $db_conn);
 
-    // $dbq->setFetchMode(PDO::FETCH_ASSOC);
-    // $res = $dbq->fetch();
-    // echo($dbq);
+	$dbq = $pdo->prepare("Insert into users (NAME,EMAIL,PASSWORD,SALT,PART,created_at,PICTURE) values(:name,:email,:password,:salt,:part,NOW(),:picture)");
+    $dbq->bindParam(':name', $name, PDO::PARAM_STR);
+    $dbq->bindParam(':email', $email, PDO::PARAM_STR);
+    $dbq->bindParam(':password', $password, PDO::PARAM_STR);
+    $dbq->bindParam(':salt', $salt, PDO::PARAM_STR);
+    $dbq->bindParam(':part', $part, PDO::PARAM_STR);
+    $dbq->bindParam(':picture', $picture, PDO::PARAM_STR);
+	$dbq->execute();
+	$insertid = $pdo->lastInsertId();
 
-	if($dbq == 1)
+	if($insertid)
 	{
 		echo("<script> 
 		window.alert('Register Sucess!'); 

@@ -24,7 +24,7 @@
         <!-- <br> -->
         <div style="margin-top: 10px;">
           <!-- <input type="hidden" name="MAX_FILE_SIZE" value="30000" /> -->
-          <input type="file" name="userfile" class="form-control col-lg-10" id="input-track-area"></input>
+          <input type="file" name="userfile" class="form-control col-lg-10" id="input-track-area" accept=".mp3"></input>
           <button type="submit" class="submit-button track-summit-button" value="Upload File"></button>
         </div>
       </form>

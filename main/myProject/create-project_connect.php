@@ -6,19 +6,23 @@ session_start();
 include($_SERVER["DOCUMENT_ROOT"]."/include/config/config.php");
 
 extract($_POST);
-$user_id=$_SESSION["user_id"];
-$TITLE=$_POST["TITLE"];
-$ARTIST=$_SESSION["user_NAME"];
-$GENRE=$_POST["GENRE"];
-// $ALBUM_IMAGE_PATH=$_POST["ALBUM_IMAGE_PATH"];
+$user_id = $_SESSION["user_id"];
+$TITLE = $_POST["TITLE"];
+$ARTIST = $_SESSION["user_NAME"];
+$GENRE = $_POST["GENRE"];
+// $ALBUM_IMAGE_PATH = $_POST["ALBUM_IMAGE_PATH"];
 // if(!$ALBUM_IMAGE_PATH){
 //     $ALBUM_IMAGE_PATH="def.jpg";
 // }
-$ALBUM_IMAGE_PATH=$_FILES['ALBUM_IMAGE_PATH']['name'];
-// $ALBUM_IMAGE_PATH="def.jpg";
-$PROJECT_INFO=$_POST["PROJECT_INFO"];
+$ALBUM_IMAGE_PATH = $_FILES['ALBUM_IMAGE_PATH']['name'];
 
-$q="INSERT INTO projects(
+// 확장자 검사
+$ext = array_pop(explode(".", strtolower($ALBUM_IMAGE_PATH)));
+
+// $ALBUM_IMAGE_PATH="def.jpg";
+$PROJECT_INFO = $_POST["PROJECT_INFO"];
+
+$q = "INSERT INTO projects(
 created_at,
 updated_at,
 ALBUM_IMAGE_PATH,
@@ -36,15 +40,16 @@ now(),
  :user_id,
  :GENRE);";
 
-if ($_FILES['ALBUM_IMAGE_PATH']['error'] > 0) { 
+// accept=".jpg,.jpeg,.png,.gif,.bmp"
+if ($_FILES['ALBUM_IMAGE_PATH']['error'] > 0 || !($ext == 'png' || $ext == 'jpg' || $ext == 'jpeg' || $ext == 'gif' || $ext == 'bmp')) {
     echo 'problem'; 
-    switch ($_FILES['ALBUM_IMAGE_PATH']['error']) { 
+    switch ($_FILES['ALBUM_IMAGE_PATH']['error']) {
         case 1: echo 'file exceeded upload_max_filesize'; break; 
         case 2: echo 'file exceeded max_file_size'; break; 
         case 3: echo 'file only partially uploaded'; break; 
         case 4: echo 'No file uploaded'; break; 
-    } 
-echo "<script>alert('프로젝트 생성에 실패했습니다.'); 
+    }
+echo "<script>alert('프로젝트 생성에 실패했습니다.');
 location.replace('/main/myProject/create-project_frame.php');</script>";
 exit; 
 } 

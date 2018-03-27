@@ -57,7 +57,7 @@ session_start();
       <div class="form-group">
         <label>Image</label>
         <!-- <input type="hidden" name="MAX_FILE_SIZE" value="30000" />  -->
-        <input type="file" name="ALBUM_IMAGE_PATH" class="form-control" size="60" /></input>
+        <input type="file" name="ALBUM_IMAGE_PATH" class="form-control" size="60" accept=".jpg,.jpeg,.png,.gif,.bmp" /></input>
       </div>
 
       <div class="form-group">

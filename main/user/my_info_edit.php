@@ -6,22 +6,22 @@ include($_SERVER["DOCUMENT_ROOT"]."/include/config/config.php");
 
 $user_id = $_SESSION["user_id"];
 
-$q="select * from users where id= :user_id";
+$q = "select * from users where id= :user_id";
 $dbq = $pdo->prepare($q);
 $dbq->bindParam(':user_id', $user_id, PDO::PARAM_STR);
 $dbq->execute();
 $count = $dbq->rowCount();
 $sql_result = $dbq->fetch(PDO::FETCH_ASSOC);
 echo("<script>query_count=$count;</script>");
-$user_NAME=$sql_result['NAME'];
-$user_EMAIL=$sql_result['EMAIL'];
-$user_PART=$sql_result['PART'];
-$user_AFFILIATE_BAND=$sql_result['AFFILIATE_BAND'];
-$user_PICTURE=$sql_result['PICTURE'];
+$user_NAME = $sql_result['NAME'];
+$user_EMAIL = $sql_result['EMAIL'];
+$user_PART = $sql_result['PART'];
+$user_AFFILIATE_BAND = $sql_result['AFFILIATE_BAND'];
+$user_PICTURE = $sql_result['PICTURE'];
 
-$user_created_at=$sql_result['created_at'];
-$user_updated_at=$sql_result['updated_at'];
-$user_INFO=$sql_result['INFO'];
+$user_created_at = $sql_result['created_at'];
+$user_updated_at = $sql_result['updated_at'];
+$user_INFO = $sql_result['INFO'];
 echo("<script>
         var user_INFO = '$user_INFO';
   </script>");

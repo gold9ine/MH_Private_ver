@@ -5,7 +5,7 @@ header('Content-Type: text/html; charset=utf-8');
 session_cache_expire(1800);
 
 session_start();
-$_SESSION["user_id"] = 1;
+// $_SESSION["user_id"] = 1;
 ?>
 
 

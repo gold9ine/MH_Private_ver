@@ -9,7 +9,7 @@ session_start();
 include($_SERVER["DOCUMENT_ROOT"]."/include/config/config.php");
 $user_id = $_SESSION["user_id"];
 
-$q2="select * from projects where projects.pri_user_id= :user_id;";
+$q2 = "select * from projects where projects.pri_user_id= :user_id;";
 $dbq = $pdo->prepare($q2);
 $dbq->bindParam(':user_id', $user_id, PDO::PARAM_INT);
 $dbq->execute();
@@ -19,12 +19,12 @@ $sql_result2 = $dbq->fetchAll(PDO::FETCH_ASSOC);
 // $count2=mysql_num_rows($sql_result2);
 $i=0;
 foreach ($sql_result2 as $row){
-  $relation_pro_dbid[$i]=$row['id'];
-  $relation_pro_dbALBUM_IMAGE_PATH[$i]=$row['ALBUM_IMAGE_PATH'];
-  $relation_pro_dbTITLE[$i]=$row['TITLE'];
-  $relation_pro_dbARTIST[$i]=$row['ARTIST'];
-  $relation_pro_dbPROJECT_INFO[$i]=$row['PROJECT_INFO'];
-  $relation_pro_dbpri_user_id[$i]=$row['pri_user_id'];
+  $relation_pro_dbid[$i] = $row['id'];
+  $relation_pro_dbALBUM_IMAGE_PATH[$i] = $row['ALBUM_IMAGE_PATH'];
+  $relation_pro_dbTITLE[$i] = $row['TITLE'];
+  $relation_pro_dbARTIST[$i] = $row['ARTIST'];
+  $relation_pro_dbPROJECT_INFO[$i] = $row['PROJECT_INFO'];
+  $relation_pro_dbpri_user_id[$i] = $row['pri_user_id'];
 
   $i++;
 }

@@ -11,48 +11,48 @@
 // $base_dir = "/home/mh/soma/webpage";
 // include("$base_dir/include/config/config.php");
 // $base_dir = "/home/mh/soma/webpage";
-include($_SERVER["DOCUMENT_ROOT"]."/include/config/config.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/include/config/config.php");
 
-$user_id=$_SESSION["user_id"];
-$project_id=$_GET['a'];
+$user_id = $_SESSION["user_id"];
+$project_id = $_GET['a'];
 $_SESSION["project_id"] = $project_id;
-$q="select projects.*, sounds.id as sound_id, sounds.project_id, sounds.pri_user_id as sound_pri_user_id, sounds.SOUND_PATH, sounds.updated_at as sound_updated_at from projects, sounds where projects.id=sounds.project_id and projects.id= :project_id;";
+$q = "select projects.*, sounds.id as sound_id, sounds.project_id, sounds.pri_user_id as sound_pri_user_id, sounds.SOUND_PATH, sounds.updated_at as sound_updated_at from projects, sounds where projects.id=sounds.project_id and projects.id= :project_id;";
 $dbq = $pdo->prepare($q);
 $dbq->bindParam(':project_id', $project_id, PDO::PARAM_STR);
 $dbq->execute();
 $count2 = $dbq->rowCount();
 $sql_result = $dbq->fetch(PDO::FETCH_ASSOC);
-// $sql_result=mysql_query($q, $db_conn); 
-// $count2=mysql_num_rows($sql_result);
+// $sql_result = mysql_query($q, $db_conn); 
+// $count2 = mysql_num_rows($sql_result);
       
 if($count2){
-  $pro_dbid=$project_id;
-  $pro_dbGOOD_COUNT=$sql_result['GOOD_COUNT'];
-  $pro_dbDOWNLOAD_COUNT=$sql_result['DOWNLOAD_COUNT'];
-  $pro_dbPLAY_COUNT=$sql_result['PLAY_COUNT'];
-  $pro_dbPLAY_TIME=$sql_result['PLAY_TIME'];
+  $pro_dbid = $project_id;
+  $pro_dbGOOD_COUNT = $sql_result['GOOD_COUNT'];
+  $pro_dbDOWNLOAD_COUNT = $sql_result['DOWNLOAD_COUNT'];
+  $pro_dbPLAY_COUNT = $sql_result['PLAY_COUNT'];
+  $pro_dbPLAY_TIME = $sql_result['PLAY_TIME'];
 
-  ($sql_result['created_at']!=null)?$pro_dbcreated_at=$sql_result['created_at']:$pro_dbcreated_at=0;
+  ($sql_result['created_at'] != null) ? $pro_dbcreated_at = $sql_result['created_at'] : $pro_dbcreated_at=0;
   // $pro_dbcreated_at=mysql_result($sql_result, 0 , 'created_at');
-  ($sql_result['updated_at']!=null)?$pro_dbupdated_at=$sql_result['updated_at']:$pro_dbupdated_at=0;
+  ($sql_result['updated_at'] != null) ? $pro_dbupdated_at = $sql_result['updated_at'] : $pro_dbupdated_at=0;
   // $pro_dbupdated_at=mysql_result($sql_result, 0 , 'updated_at');
   // (mysql_result($pro_dbALBUM_IMAGE_PATH, 0 , 'ALBUM_IMAGE_PATH')!=null)?$pro_dbALBUM_IMAGE_PATH=mysql_result($pro_dbALBUM_IMAGE_PATH, 0 , 'ALBUM_IMAGE_PATH'):$pro_dbALBUM_IMAGE_PATH="";
-  $pro_dbALBUM_IMAGE_PATH=$sql_result['ALBUM_IMAGE_PATH'];
-  $pro_dbTITLE=$sql_result['TITLE'];
-  $pro_dbARTIST=$sql_result['ARTIST'];
+  $pro_dbALBUM_IMAGE_PATH = $sql_result['ALBUM_IMAGE_PATH'];
+  $pro_dbTITLE = $sql_result['TITLE'];
+  $pro_dbARTIST = $sql_result['ARTIST'];
 
-  $pro_dbPROJECT_INFO=$sql_result['PROJECT_INFO'];
+  $pro_dbPROJECT_INFO = $sql_result['PROJECT_INFO'];
   echo("<script>
         var pro_INFO = '$pro_dbPROJECT_INFO';
   </script>");
-  $pro_dbmeta_num=$sql_result['meta_id'];
-  $pro_dbpri_user_id=$sql_result['pri_user_id'];
-  $pro_dbGENRE=$sql_result['GENRE'];
-  $pro_dbsound_id=$sql_result['sound_id'];
+  $pro_dbmeta_num = $sql_result['meta_id'];
+  $pro_dbpri_user_id = $sql_result['pri_user_id'];
+  $pro_dbGENRE = $sql_result['GENRE'];
+  $pro_dbsound_id = $sql_result['sound_id'];
 
-  $pro_dbsound_pri_user_id=$sql_result['sound_pri_user_id'];
-  $pro_dbSOUND_PATH=$sql_result['SOUND_PATH'];
-  $pro_dbsound_updated_at=$sql_result['sound_updated_at'];
+  $pro_dbsound_pri_user_id = $sql_result['sound_pri_user_id'];
+  $pro_dbSOUND_PATH = $sql_result['SOUND_PATH'];
+  $pro_dbsound_updated_at = $sql_result['sound_updated_at'];
 
   $sql = "select NAME from users where id= :pro_dbsound_pri_user_id;";
   $dbq = $pdo->prepare($sql);
@@ -69,25 +69,25 @@ else{
   $count = $dbq->rowCount();
   $sql_result = $dbq->fetch(PDO::FETCH_ASSOC);
 
-  $pro_dbid=$project_id;
-  $pro_dbGOOD_COUNT=$sql_result['GOOD_COUNT'];
-  $pro_dbDOWNLOAD_COUNT=$sql_result['DOWNLOAD_COUNT'];
-  $pro_dbPLAY_COUNT=$sql_result['PLAY_COUNT'];
-  $pro_dbPLAY_TIME=$sql_result['PLAY_TIME'];
+  $pro_dbid = $project_id;
+  $pro_dbGOOD_COUNT = $sql_result['GOOD_COUNT'];
+  $pro_dbDOWNLOAD_COUNT = $sql_result['DOWNLOAD_COUNT'];
+  $pro_dbPLAY_COUNT = $sql_result['PLAY_COUNT'];
+  $pro_dbPLAY_TIME = $sql_result['PLAY_TIME'];
 
-  ($sql_result['created_at']!=null)?$pro_dbcreated_at=$sql_result['created_at']:$pro_dbcreated_at=0;
-  $pro_dbsound_updated_at=$sql_result['updated_at'];
-  $pro_dbALBUM_IMAGE_PATH=$sql_result['ALBUM_IMAGE_PATH'];
-  $pro_dbTITLE=$sql_result['TITLE'];
-  $pro_dbARTIST=$sql_result['ARTIST'];
+  ($sql_result['created_at']!=null)?$pro_dbcreated_at = $sql_result['created_at']:$pro_dbcreated_at=0;
+  $pro_dbsound_updated_at = $sql_result['updated_at'];
+  $pro_dbALBUM_IMAGE_PATH = $sql_result['ALBUM_IMAGE_PATH'];
+  $pro_dbTITLE = $sql_result['TITLE'];
+  $pro_dbARTIST = $sql_result['ARTIST'];
 
-  $pro_dbPROJECT_INFO=$sql_result['PROJECT_INFO'];
+  $pro_dbPROJECT_INFO = $sql_result['PROJECT_INFO'];
   echo("<script>
         var pro_INFO = '$pro_dbPROJECT_INFO';
   </script>");
-  $pro_dbmeta_num=$sql_result['meta_id'];
-  $pro_dbpri_user_id=$sql_result['pri_user_id'];
-  $pro_dbGENRE=$sql_result['GENRE'];
+  $pro_dbmeta_num = $sql_result['meta_id'];
+  $pro_dbpri_user_id = $sql_result['pri_user_id'];
+  $pro_dbGENRE = $sql_result['GENRE'];
 
   $sql2 = "select NAME from users where id= :pro_dbpri_user_id;;";
   $dbq = $pdo->prepare($sql2);
@@ -126,7 +126,7 @@ $(document).ready(function(){
       <div class="pi-main-alblum-img-back-edit">
         <?php echo("<img id=\"pro-img\" class=\"pi-main-album-full-edit img-radius\" src=\"/uploads/albumImg/$pro_dbALBUM_IMAGE_PATH\">");?>
       </div>
-      <input type="file" oninput="OnInput(event)" name="ALBUM_IMAGE_PATH" class="form-control" id="inputProImg" style="height: 30px;">
+      <input type="file" oninput="OnInput(event)" name="ALBUM_IMAGE_PATH" class="form-control" id="inputProImg" style="height: 30px;" accept=".jpg,.jpeg,.png,.gif,.bmp">
     </div>
     <div class="col-xs-7 pi-main-formgroup pi-main-formgroup-edit">
       <div class="form-group">
@@ -182,7 +182,7 @@ $(document).ready(function(){
       </div>
     </div>
     <div class="col-xs-7 pi-main-formgroup" style="padding-top: 13px;">
-      <input type="file" oninput="OnInput(event)" name="ALBUM_SOUND_PATH" class="form-control" id="inputProSound">
+      <input type="file" oninput="OnInput(event)" name="ALBUM_SOUND_PATH" class="form-control" id="inputProSound" accept=".mp3">
       <button type="submit" id="pro-edit-summit-btn" class="pro-edit-summit-btn right" role="button"></button>
     </div>
     <!-- <button type="submit" id="pro-edit-summit-btn" class="pro-edit-summit-btn right" role="button"></button> -->

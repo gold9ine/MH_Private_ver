@@ -18,7 +18,7 @@
 include($_SERVER["DOCUMENT_ROOT"] . "/include/config/config.php");
 
 $user_id = $_SESSION["user_id"];
-$dbq = $pdo->prepare("select * from users where id= :id");
+$dbq = $pdo->prepare("select * from users where id = :id");
 $dbq->bindParam(':id', $user_id, PDO::PARAM_STR);
 $dbq->execute();
 
@@ -49,6 +49,10 @@ echo("<script>
           user_INFO = '$user_INFO';
       </script>");
 $_SESSION["user_NAME"] = $user_NAME;
+
+function alert($text) {
+  echo("<script>alert($text);</script>");
+}
 ?>
 
 <script src='/include/js/jquery-2.1.0.min.js'></script>

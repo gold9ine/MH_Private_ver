@@ -181,7 +181,8 @@ $j++;
               if($count2){
               echo("
               <a onclick=\"session_play_add($pro_dbid, '$pro_dbTITLE', '$pro_dbARTIST', '$pro_dbSOUND_PATH')\" class=\"pro-button pro-play-add-button\"></a>
-              <a onclick=\"down_music($pro_dbid) \" download=\"$pro_dbSOUND_PATH\" type=\"button\" class=\"pro-button pro-download-button\"></a>
+              <a onclick=\"down_music($pro_dbid) \" href=\"/uploads/music/$pro_dbSOUND_PATH\" download=\"$pro_dbSOUND_PATH\" type=\"button\" class=\"pro-button pro-download-button\"></a>
+
               "); 
               // <a onclick=\"down_music($pro_dbid) \" download=\"$pro_dbSOUND_PATH\" type=\"button\" class=\"pro-button pro-download-button\"></a>
               // <a onclick=\"down_music($pro_dbid) \" href=\"/uploads/music/$pro_dbSOUND_PATH\" download=\"$pro_dbSOUND_PATH\" type=\"button\" class=\"pro-button pro-download-button\"></a>
@@ -203,7 +204,7 @@ $j++;
     </div>
     <div class="album-info-area">
       <div style="height: 15px;"></div>
-      <?php for($j=0; $j<$q_temp_count; $j++){
+      <?php for($j = 0; $j < $q_temp_count; $j++){
       echo("
       <img onclick=\"getAlbumInfo($re_pro_dbid[$j]);\" class=\"rank-projcet-img-small pi-related-album-group\" src=\"/uploads/albumImg/$re_pro_dbALBUM_IMAGE_PATH[$j]\"/>"
       );
