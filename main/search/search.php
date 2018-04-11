@@ -1,4 +1,4 @@
-<?php include($_SERVER["DOCUMENT_ROOT"]."/main/search/search_connect.php"); ?>
+<?php include($_SERVER["DOCUMENT_ROOT"] . "/main/search/search_connect.php"); ?>
 <div class="content-left-mp">
   <div class="bar-area searchbar-bottom-magin" style="margin-top: 90px;">
     <h3 class="search-key-result"><a class="mic-icon"></a>"<label class="search-key"><?PHP echo($searchKey);?></label>" on the search results.</h3>
@@ -11,7 +11,7 @@
     <table id="search-table-project" class="search-table table table-hover">
       <tr class="search-table-tr1">
         <td class="search-table-td1"></td>
-        <td class="search-table-td2">Project Name</td>
+        <td class="search-table-td2"><strong>Project Name</strong></td>
         <td class="search-table-td3">Uploader</td>
         <td class="search-table-td4">Track</td>
         <td class="search-table-td5 search-table-td-icon">Play</td>
@@ -20,7 +20,9 @@
       </tr>
 
       <?php 
-      for($i=0; $i<$count1; $i++){$j=$i+1;echo("
+      for($i = 0; $i < $count1; $i++){
+        $j = $i + 1;
+        echo("
         <tr class=\"search-table-tr\">
           <td class=\"search-table-td1\">$j</td>
           <td class=\"search-table-td2\" onclick=\"getAlbumInfo($search_pro_dbid[$i]);\">$search_pro_dbTITLE[$i]</td>
@@ -32,7 +34,9 @@
         </tr>
       "); $j=0;}?>
       <?php 
-      for($i=0; $i<$count1_r; $i++){$j=$i+1;echo("
+      for($i = 0; $i < $count1_r; $i++){
+        $j = $i + 1;
+        echo("
         <tr class=\"search-table-tr\">
           <td class=\"search-table-td1\">$j</td>
           <td class=\"search-table-td2\" onclick=\"getAlbumInfo($search_pro_dbid[$i]);\">$search_pro_dbTITLE[$i]</td>
@@ -54,14 +58,16 @@
       <tr class="search-table-tr2">
         <td class="search-table-td1"></td>
         <td class="search-table-td2">Project Name</td>
-        <td class="search-table-td3">Uploader</td>
+        <td class="search-table-td3"><strong>Uploader</strong></td>
         <td class="search-table-td4">Track</td>
         <td class="search-table-td5 search-table-td-icon">Play</td>
         <td class="search-table-td6 search-table-td-icon">Download</td>
         <td class="search-table-td7 search-table-td-icon">Like</td>
       </tr>
       <?php 
-      for($i=0; $i<$count2; $i++){$j=$i+1;echo("
+      for($i = 0; $i < $count2; $i++){
+        $j = $i + 1;
+        echo("
         <tr class=\"search-table-tr\">
           <td class=\"search-table-td1\">$j</td>
           <td class=\"search-table-td2\" onclick=\"getAlbumInfo($search_sound_dbid[$i]);\">$search_sound_dbTITLE[$i]</td>
@@ -71,9 +77,13 @@
           <td class=\"search-table-td6 search-table-td-icon\"><a href=\"/uploads/music/$search_sound_dbSOUND_PATH[$i]\" download=\"$search_sound_dbSOUND_PATH[$i]\" type=\"button\" class=\"favoritelist-button rank-download-button\"></a></td>
           <td class=\"search-table-td7 search-table-td-icon\"><a type=\"button\" onclick=\"like_project($search_sound_dbid[$i])\" class=\"favoritelist-button rank-like-button\"></a></td>
         </tr>
-      "); $j=0;}?>
+      ");
+        $j = 0;
+    }?>
       <?php 
-      for($i=0; $i<$count3; $i++){$j=$i+1;echo("
+      for($i = 0; $i < $count3; $i++){
+        $j = $i + 1;
+        echo("
         <tr class=\"search-table-tr\">
           <td class=\"search-table-td1\">$j</td>
           <td class=\"search-table-td2\" onclick=\"getAlbumInfo($search_source_dbid[$i]);\">$search_source_dbTITLE[$i]</td>
@@ -83,7 +93,9 @@
           <td class=\"search-table-td6 search-table-td-icon\"><a href=\"/uploads/source/$search_source_dbSOUND_PATH[$i]\" download=\"$search_source_dbSOUND_PATH[$i]\" type=\"button\" class=\"favoritelist-button rank-download-button\"></a></td>
           <td class=\"search-table-td7 search-table-td-icon\"><a type=\"button\" onclick=\"like_project($search_source_dbid[$i])\" class=\"favoritelist-button rank-like-button\"></a></td>
         </tr>
-      "); $j=0;}?>
+      ");
+      $j = 0;
+    }?>
     </table>
   </div>
 
@@ -96,13 +108,15 @@
         <td class="search-table-td1"></td>
         <td class="search-table-td2">Project Name</td>
         <td class="search-table-td3">Uploader</td>
-        <td class="search-table-td4">Track</td>
+        <td class="search-table-td4"><strong>Track</strong></td>
         <td class="search-table-td5 search-table-td-icon">Play</td>
         <td class="search-table-td6 search-table-td-icon">Download</td>
         <td class="search-table-td7 search-table-td-icon">Like</td>
       </tr>
       <?php 
-      for($i=0; $i<$count4; $i++){$j=$i+1;echo("
+      for($i = 0; $i < $count4; $i++){
+        $j = $i + 1;
+        echo("
         <tr class=\"search-table-tr\">
           <td class=\"search-table-td1\">$j</td>
           <td class=\"search-table-td2\" onclick=\"getAlbumInfo($search_artist_dbid[$i]);\">$search_artist_dbTITLE[$i]</td>
@@ -112,9 +126,13 @@
           <td class=\"search-table-td6 search-table-td-icon\"><a href=\"/uploads/music/$search_artist_dbSOUND_PATH[$i]\" download=\"$search_artist_dbSOUND_PATH[$i]\" type=\"button\" class=\"favoritelist-button rank-download-button\"></a></td>
           <td class=\"search-table-td7 search-table-td-icon\"><a type=\"button\" onclick=\"like_project($search_artist_dbid[$i])\" class=\"favoritelist-button rank-like-button\"></a></td>
         </tr>
-      "); $j=0;}?>
+      ");
+      $j = 0;
+    }?>
       <?php 
-      for($i=0; $i<$count4_r; $i++){$j=$i+1;echo("
+      for($i = 0; $i < $count4_r; $i++){
+        $j = $i + 1;
+        echo("
         <tr class=\"search-table-tr\">
           <td class=\"search-table-td1\">$j</td>
           <td class=\"search-table-td2\" onclick=\"getAlbumInfo($search_artist_dbid[$i]);\">$search_artist_dbTITLE[$i]</td>
@@ -124,7 +142,9 @@
           <td class=\"search-table-td6 search-table-td-icon\"><a style=\"cursor: auto;\" type=\"button\" class=\"favoritelist-button rank-download-button\"></a></td>
           <td class=\"search-table-td7 search-table-td-icon\"><a style=\"cursor: auto;\" type=\"button\"  class=\"favoritelist-button rank-like-button\"></a></td>
         </tr>
-      "); $j=0;}?>
+      ");
+      $j = 0;
+    }?>
     </table>
   </div>
   
@@ -139,14 +159,14 @@
   <!-- List group -->
   <ul id="list-group-item" class="list-group">
     <?php
-    include($_SERVER["DOCUMENT_ROOT"]."/main/favorite_connect.php");
-    for($i=0; $i<$q_favoritelist_project_count; $i++){
+    include($_SERVER["DOCUMENT_ROOT"] . "/main/favorite_connect.php");
+    for($i = 0; $i < $q_favoritelist_project_count; $i++){
     echo("
     <li class=\"list-group-item\">
       <div class=\"favoriteList-project row\">
         <div class=\"favoriteList-add col-md-2\">
         ");
-        if($favoritelist_pro_dbsound_id[$i]==0){
+        if($favoritelist_pro_dbsound_id[$i] == 0){
          echo(" <a style=\"cursor: auto;\" type=\"button\" class=\"favoritelist-button rank-play-add-button\"></a>");
          }
          else{

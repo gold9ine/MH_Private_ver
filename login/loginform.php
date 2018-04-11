@@ -22,11 +22,11 @@ session_start();
  	<div class="middleArea">
  		<form class="form-inline login-padding login-right" role="form" action="/login/login.php" method="post">
  			<div class="form-group login-form ">
-      <!-- <div class="checkbox login-checkbox">
+      <div class="checkbox login-checkbox">
         <label class="checkbox-font">
           <input type="checkbox" class="login-remember" name="remember-me"> Remember me </input>
         </label>
-      </div> -->
+      </div>
       <div class="form-group">
       	<label class="sr-only login-label" for="InputEmail">Email address</label>
       	<input type="email" class="form-control login-label" name="userEmail" id="InputEmail" placeholder="Enter email"></input>

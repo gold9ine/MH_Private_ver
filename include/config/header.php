@@ -97,12 +97,10 @@ function alert($text) {
         </div>
       </div>
     </div>
-
   </div>
+  
   <div id="topMenu" style="text-align: center;">
-    <div id="menu-btn-group" class="middleArea menu_none" style="
-    margin-left: 5px;
-    ">
+    <div id="menu-btn-group" class="middleArea menu_none" style="margin-left: 5px;">
       <img class="top-menu-btn" id="harmonyChartButton" name="harmonyChartButton"></img>
       <img class="top-menu-btn" id="artistRankingButton" name="artistRankingButton"></img>
       <img class="top-menu-btn" id="myProjectButton" name="myProjectButton"></img>

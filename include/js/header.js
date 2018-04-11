@@ -72,7 +72,7 @@ $(function(){
       menu_group.removeClass('menu_mpb');
       menu_group.removeClass('menu_tlb');
       menu_group.addClass('menu_none');
-      location.href="/login/logout.php";
+      location.href = "/login/logout.php";
   });
   $("a#user-project-create").on('click', function(event){
       event.preventDefault();
@@ -102,7 +102,7 @@ function user_info(id){
       menu_group.removeClass('menu_mpb');
       menu_group.removeClass('menu_tlb');
       menu_group.addClass('menu_none');
-      if(user_id==id){
+      if(user_id == id){
         $("#content").load("/main/user/my_info.php");
         // $("#content").load("/main/user/user_info.php?a="+id);
       }
@@ -112,12 +112,12 @@ function user_info(id){
 }
 function searchAction(){
   var search_key = document.getElementById("search-box").value;
-  if (search_key=="") {
+  if (search_key == "") {
     alert("Empty search area!!");
     // document.getElementById("content").innerHTML="";
     return;
   } 
-  $("#content").load("/main/search/search.php?a="+search_key);
+  $("#content").load("/main/search/search.php?a=" + search_key);
 }
 
 function searchAction1(){
@@ -126,9 +126,9 @@ function searchAction1(){
   $(document).ready(function(){
     jQuery.ajax({
     type:"GET",
-    url:"./search/search-query.php?a="+search_key,
+    url:"./search/search-query.php?a=" + search_key,
     success:function(msg){
-      console.log("search keyword = "+search_key); 
+      console.log("search keyword = " + search_key); 
       var menu_group = $('#menu-btn-group');
       menu_group.removeClass('menu_hcb');
       menu_group.removeClass('menu_atb');
@@ -136,7 +136,7 @@ function searchAction1(){
       menu_group.removeClass('menu_tlb');
       menu_group.addClass('menu_none');
       // $("#content").load("/main/search/search-result2.php");
-      $("#content").load("/main/search/search-result2.php?a="+search_key);
+      $("#content").load("/main/search/search-result2.php?a=" + search_key);
     }, error: function(xhr,status,error){
       alert(error);
     }
@@ -148,9 +148,9 @@ function searchAction1(){
 
 function searchAction2() {
   var search_key = document.getElementById("search-box").value;
-  var str=search_key;
-  if (str=="") {
-    document.getElementById("content").innerHTML="";
+  var str = search_key;
+  if (str == "") {
+    document.getElementById("content").innerHTML = "";
     return;
   } 
   if (window.XMLHttpRequest) {
@@ -159,12 +159,12 @@ function searchAction2() {
   } else { // code for IE6, IE5
     xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
   }
-  xmlhttp.onreadystatechange=function() {
-    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-      document.getElementById("content").innerHTML=xmlhttp.responseText;
+  xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+      document.getElementById("content").innerHTML = xmlhttp.responseText;
     }
   }
-  xmlhttp.open("GET","./search/search-query.php?a="+str,true);
+  xmlhttp.open("GET","./search/search-query.php?a=" + str,true);
   // xmlhttp.open("GET","./search/search-result2.php?a="+str,true);
   xmlhttp.send();
   // $("#content").load("/main/search/search-result.php");
@@ -180,9 +180,9 @@ function getAlbumInfo(id) {
   menu_group.removeClass('menu_mpb');
   menu_group.removeClass('menu_tlb');
   menu_group.addClass('menu_none');
-  var project_id=id;
+  var project_id = id;
   // console.log(project_id);
-  $("#content").load("/main/myProject/projectInfo.php?a="+project_id);
+  $("#content").load("/main/myProject/projectInfo.php?a=" + project_id);
 }
 
 function callEditProject(id) {
@@ -196,7 +196,7 @@ function callEditProject(id) {
   //fullSize();
   // $("#content").load("/edit/edit.php?project_id="+project_id);
   
-  location.replace("/edit/edit.php?project_id="+project_id);
+  location.replace("/edit/edit.php?project_id=" + project_id);
 
   // var str= "<iframe src='/edit/edit.php?project_id=";
   // str+=project_id;
@@ -241,7 +241,7 @@ function favorite_delete(pro_id){
     $(document).ready(function() {
     jQuery.ajax({
     type:"POST",
-    url:"/main/favorite_delete.php?a="+pro_id,
+    url:"/main/favorite_delete.php?a=" + pro_id,
     success:function(){
       $("#list-group-item").load("/main/my-favorite-list.php");
     }, error: function(xhr,status,error){
@@ -253,22 +253,22 @@ function favorite_delete(pro_id){
 
 function like_project1(id) {
     // createXMLHttpRequest();
-  if (id=="") {
-    document.getElementById("content").innerHTML="";
+  if (id == "") {
+    document.getElementById("content").innerHTML = "";
     return;
   } 
   if (window.XMLHttpRequest) {
     // code for IE7+, Firefox, Chrome, Opera, Safari
-    xmlhttp=new XMLHttpRequest();
+    xmlhttp = new XMLHttpRequest();
   } else { // code for IE6, IE5
-    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
   }
   xmlhttp.onreadystatechange=function() {
-    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-      document.getElementById("content").innerHTML=xmlhttp.responseText;
+    if (xmlhttp.readyState==4 && xmlhttp.status == 200) {
+      document.getElementById("content").innerHTML = xmlhttp.responseText;
     }
   }
-  xmlhttp.open("GET","/include/config/goodCheck.php?a="+id,true);
+  xmlhttp.open("GET","/include/config/goodCheck.php?a=" + id,true);
   // xmlhttp.open("GET","./search/search-result2.php?a="+str,true);
   xmlhttp.send();
   // $("#content").load("/main/search/search-result.php");
@@ -278,9 +278,9 @@ function like_project2(id){
     $(document).ready(function(){
     jQuery.ajax({
     type:"GET",
-    url:"/include/config/goodCheck.php?a="+id,
+    url:"/include/config/goodCheck.php?a=" + id,
     success:function(){
-      console.log("project_id = "+id); 
+      console.log("project_id = " + id); 
       // $("#content").load("/main/search/search-result2.php");
       // $("#content").load("/main/search/search-result2.php?a="+search_key);
     }, error: function(xhr,status,error){
@@ -294,18 +294,18 @@ function like_project3(id) {
 
   if (window.XMLHttpRequest) {
     // code for IE7+, Firefox, Chrome, Opera, Safari
-    xmlhttp=new XMLHttpRequest();
+    xmlhttp = new XMLHttpRequest();
   } else { // code for IE6, IE5
-    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
   }
-  xmlhttp.onreadystatechange=function() {
-    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-      document.getElementById("content").innerHTML=xmlhttp.responseText;
+  xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+      document.getElementById("content").innerHTML = xmlhttp.responseText;
     }
   }
    // createXMLHttpRequest();
     xmlhttp.onreadystatechange = handleStateChange;
- xmlhttp.open('GET','send_coord_post.php?a='+id,true);
+ xmlhttp.open('GET','send_coord_post.php?a=' + id,true);
     xmlhttp.send();
 }
 
@@ -329,17 +329,17 @@ function callJoin(id)
   $(document).ready(function(){
     jQuery.ajax({
     type:"POST",
-    url:"/main/myProject/projectJoinCheck.php?a="+id,
+    url:"/main/myProject/projectJoinCheck.php?a=" + id,
     success:function(data){
       console.log(data);
-      if(data>=1){
+      if(data >= 1){
         alert("You have already added this project."); 
       }
       else{
             $(document).ready(function(){
               jQuery.ajax({
               type:"POST",
-              url:"/main/myProject/projectJoinFunction.php?a="+id,
+              url:"/main/myProject/projectJoinFunction.php?a=" + id,
               success:function(){
                 alert("Join the Project !!"); 
               }, error: function(xhr,status,error){
@@ -377,9 +377,9 @@ console.log(baseDir);
 function project_edit_mode(id){
   // alert(id);
   // $("#project_info_area").load("/main/myProject/myProject_edit.php?a="+id);
-  var str= "<iframe src='/main/myProject/myProject_edit.php?a=";
-  str+=id;
-  str+="' width='705px' height='310px' scrolling=no frameBorder='0'></iframe>";
+  var str = "<iframe src='/main/myProject/myProject_edit.php?a=";
+  str += id;
+  str += "' width='705px' height='310px' scrolling=no frameBorder='0'></iframe>";
   document.getElementById("project_info_area").innerHTML = str;
   //normalSize();
 }
